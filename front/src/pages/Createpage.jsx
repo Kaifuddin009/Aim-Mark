@@ -55,10 +55,11 @@ const Createpage = () => {
                 </div>
 
 
-                  <div className="form-control mb-4">
+                  <div className=" mb-4">
                   <label className="label">
                     <span className="label-text">Content</span>
-                    <input type="text"
+                    <textarea type="text"
+                    cols={40}
                     placeholder="Write your note here..,"
                     className="textarea textarea-bordered w-40"
                     value={content}

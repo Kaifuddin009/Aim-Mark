@@ -1,7 +1,7 @@
- import {Note} from "../models/note.model.js";
+ import Note from "../models/note.model.js";
  const getAllnotes = async function (req,res){
     try {
-        const notes = await Note.find().sort({created:-1});
+        const notes = await Note.find().sort({createdAt:-1});
         res.status(200).json(notes);
     } catch (error) {
         console.error("Error in getAllNotes controller",error);
