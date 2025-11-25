@@ -10,6 +10,7 @@ dotenv.config();
 const app = express();
 const __dirname = path.resolve();
 
+app.use(cors());
 app.use(express.json());
 
 // ✅ Allow frontend (both local + deployed)
@@ -17,12 +18,15 @@ const allowedOrigins = [
   "http://localhost:5173", // local frontend
   "https://your-frontend.onrender.com" // deployed frontend URL
 ];
-
-app.use(cors({
+/*app.use(cors({
   origin: allowedOrigins,  // your frontend URL
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
-}));
+}));*/
+//Routes
+app.get("/", (req, res) => {
+  res.send("Server is running ✅");
+});
 
 //app.use(ratelimiter);
 app.use("/api/notes", notesRoutes);
